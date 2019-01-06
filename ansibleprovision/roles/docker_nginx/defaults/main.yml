@@ -1,5 +1,5 @@
 ---
 docker_nginx:
-  docroot: /var/www/html
-  package: apache2
-  service: apache2
+  version: latest
+  dockerpacakge: nginx
+  htmlpath: /users/myuser/html/

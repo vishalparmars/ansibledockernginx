@@ -69,7 +69,7 @@
 
 - name: Ansible copy file to remote server
   copy:
-      src: /Users/vishydarshy/Work/software/index.html
+      src: {{ docker_nginx.htmlpath }}
       dest: ~/docker-nginx/html/ 
  
 - name: Check for containers that actually exist

@@ -45,6 +45,65 @@ You would need to install the below .
     192.168.50.6  docker.ansible.nginx
     
     
+  # Ansible Setup 
+    The Ansible setup and directory structure is as below
+    
+    ~/ansibledockernginx                                                       
+    ├── Vagrantfile
+    └── provision
+        ├── playbook.yml
+        ├── ansible.cfg
+        └── roles
+            └── docker_nginx
+                ├── defaults
+                │   └── main.yml
+                ├── files
+                │   └── index.html
+                └── tasks
+                    └── main.yml
+                    
+    
+   There is one Role Created docker_nginx which has the Task Listed from Playbook.
+   The html file for Displaying the output is placed in index.html and can be edited as per Users wish.
+   Below are the steps and Task in the Playbook.
+   
+    First few  Task are for installing the Depndencies for Docker Library which as :
+    
+      apt-transport-https
+      ca-certificates
+      software-properties-common This software provides an abstraction of the used apt repositories
+      curl 
+    
+    Task "Install Docker apt package" instals the Docker into the Ubuntu VM
+    Next Task Ensure Docker service is installed and restarted
+    
+    We then Pull NGINX Image from Docker hub Repo. Pull NGINX Docker Image
+    
+    Next step is to build a Web Page to Serve on Nginx  which is doen by Task "Setup directory HTML and Write Indexhtml content"
+    
+    The Task "Ansible copy file to remote server" copeis the html file from host to guest VM
+    Post any change and Reload of Vagrant we nee to ensure the Docker nginx container is removed else the run will fail.
+    This is done by Task "Check for containers that actually exist"
+   
+   
+    NGINX The Nginx container is set up by default to look for an index page at /usr/share/nginx/html, so in our new Docker            container, we need to give it access to our files at that location.To do this, we use the -v flag to map a folder from our local machine (~/docker-nginx/html) to a relative path in the container (/usr/share/nginx/html).
+    
+    Final Task is to run the docker command for deploying the NGINX on port 80.
+    
+   # Testing the application
+    If the Task runs successfully you will be able to test it via shsll script provided : 
+    root folder has the script runTest.sh.
+    This is used to hit the URL and compare the output with the exact Expected String "Hello World VP"
+    If it runs successfully the output is as below
+      Hello World VP 
+     “Output is NOT equal“
+     
+    If it fails the output is “Output is NOT equal“
+    
+    
+  
+    
+    
     
     
     

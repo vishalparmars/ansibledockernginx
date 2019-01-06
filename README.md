@@ -101,6 +101,19 @@ You would need to install the below .
     If it fails the output is “Output is NOT equal“
     
     
+ # Notes for Debugging :
+ 
+  Any change to Vagrant file or yml file in Playbook or Task please reload Vagrant using command as below
+  
+  vagrant reload --provision
+  
+  
+  Always validate yml file for ansible before running the Vagrant after any changes being done to ansible scripts via below  ansible command
+  
+   ansible-playbook playbook.yml --check
+  
+  
+
   
     
     

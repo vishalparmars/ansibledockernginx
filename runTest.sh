@@ -1,6 +1,6 @@
 #!/bin/bash
 
-returnValue=$(curl -silent  http://192.168.50.4:80 | grep V)
+returnValue=$(curl -silent  http://192.168.50.6:80 | grep V)
 echo "$returnValue"
 expectedValue="Hello World VP"
 

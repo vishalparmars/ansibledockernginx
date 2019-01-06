@@ -1,5 +1,5 @@
 ---
 docker_nginx:
   version: latest
-  dockerpacakge: nginx
-  htmlpath: /users/myuser/html/
+  dockerpackage: nginx
+  htmlpath: /Users/vishydarshy/Work/software/index.html
